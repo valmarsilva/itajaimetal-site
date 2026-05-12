@@ -1,1 +1,26 @@
 
+{
+    "name": "Itajaimetal Usinagem",
+    "short_name": "Itajaimetal",
+    "description": "Usinagem, torno mecânico, solda, elétrica, socorro truck e fabricação de peças 3D em Itajaí-SC.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#0a2342",
+    "theme_color": "#0a2342",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "logo.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "logo.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        }
+    ]
+}
