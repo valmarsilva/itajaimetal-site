@@ -1,12 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Itajaimetal Usinagem | Torno, Solda e Prototipagem 3D</title>
+
+    <title>Itajaimetal Usinagem | Torno, Solda, Elétrica, Socorro Truck e Peças 3D</title>
+
+    <meta name="description" content="Itajaimetal Usinagem em Itajaí-SC. Torno mecânico, solda técnica, elétrica, socorro mecânico truck, fabricação de peças 3D e reparos industriais.">
+
+    <!-- PWA -->
+    <meta name="theme-color" content="#0a2342">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Itajaimetal">
+    <meta name="apple-mobile-web-app-title" content="Itajaimetal">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="logo.jpg">
+
+    <!-- Ícones Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilo -->
     <style>
-        /* Estilo Profissional Industrial */
         :root {
             --azul-escuro: #0a2342;
             --amarelo: #ffcc00;
@@ -15,124 +34,546 @@
             --fonte-principal: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
-        body { font-family: var(--fonte-principal); margin: 0; padding: 0; color: #333; line-height: 1.6; }
-        
-        header { background: var(--azul-escuro); color: white; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid var(--amarelo); }
-        .logo { font-size: 1.7rem; font-weight: 900; letter-spacing: -1px; }
-
-        .hero { 
-            background: linear-gradient(rgba(10, 35, 66, 0.8), rgba(10, 35, 66, 0.8)), url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; background-position: center;
-            color: white; padding: 120px 5% 80px; text-align: center;
+        * {
+            box-sizing: border-box;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 15px; }
-        .hero p { font-size: 1.4rem; margin-bottom: 35px; color: var(--amarelo); font-weight: 500; }
 
-        .btn-whats { 
-            background-color: var(--verde-whatsapp); color: white; padding: 20px 40px; 
-            text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2rem;
-            display: inline-flex; align-items: center; gap: 12px; transition: 0.3s;
+        body {
+            font-family: var(--fonte-principal);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        header {
+            background: var(--azul-escuro);
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--amarelo);
+            gap: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .whats-topo {
+            font-weight: bold;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .hero {
+            background:
+                linear-gradient(rgba(10, 35, 66, 0.82), rgba(10, 35, 66, 0.82)),
+                url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 5% 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 35px;
+            color: var(--amarelo);
+            font-weight: 500;
+        }
+
+        .btn-whats {
+            background-color: var(--verde-whatsapp);
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        .btn-whats:hover { transform: scale(1.05); background-color: #1ebd5b; }
 
-        .servicos { padding: 80px 5%; background: var(--cinza-claro); text-align: center; }
-        .servicos h2 { margin-bottom: 50px; color: var(--azul-escuro); font-size: 2.2rem; }
-        
-        .grid-servicos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
-        .card { background: white; padding: 40px 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 5px solid transparent; }
-        .card:hover { border-bottom-color: var(--amarelo); transform: translateY(-10px); }
-        .card i { font-size: 3rem; color: var(--azul-escuro); margin-bottom: 20px; }
-        .card h3 { margin-bottom: 15px; color: var(--azul-escuro); }
+        .btn-whats:hover {
+            transform: scale(1.05);
+            background-color: #1ebd5b;
+        }
 
-        .contato { padding: 80px 5%; text-align: center; background: white; }
-        .qr-area { margin-top: 40px; padding: 20px; border: 2px solid var(--azul-escuro); display: inline-block; border-radius: 15px; }
-        .qr-area img { width: 200px; height: 200px; }
+        .servicos {
+            padding: 80px 5%;
+            background: var(--cinza-claro);
+            text-align: center;
+        }
 
-        footer { background: var(--azul-escuro); color: white; padding: 30px; text-align: center; }
+        .servicos h2 {
+            margin-bottom: 50px;
+            color: var(--azul-escuro);
+            font-size: 2.2rem;
+        }
 
-        /* Botão Flutuante */
-        .float-whats { position: fixed; bottom: 30px; right: 30px; background: var(--verde-whatsapp); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 35px; box-shadow: 2px 5px 15px rgba(0,0,0,0.3); z-index: 1000; }
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero p { font-size: 1.1rem; } }
+        .card {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-bottom: 5px solid transparent;
+        }
+
+        .card:hover {
+            border-bottom-color: var(--amarelo);
+            transform: translateY(-10px);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--azul-escuro);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--azul-escuro);
+        }
+
+        .contato {
+            padding: 80px 5%;
+            text-align: center;
+            background: white;
+        }
+
+        .contato h2 {
+            color: var(--azul-escuro);
+            font-size: 2.2rem;
+        }
+
+        .qr-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .qr-area {
+            padding: 20px;
+            border: 2px solid var(--azul-escuro);
+            display: inline-block;
+            border-radius: 15px;
+            background: #fff;
+            max-width: 260px;
+        }
+
+        .qr-area img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .instalar-area {
+            padding: 60px 5%;
+            text-align: center;
+            background: var(--azul-escuro);
+            color: white;
+        }
+
+        .instalar-area h2 {
+            color: var(--amarelo);
+            margin-bottom: 15px;
+        }
+
+        .btn-instalar {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+            border: none;
+            padding: 16px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .btn-instalar:hover {
+            background: #e6b800;
+        }
+
+        footer {
+            background: var(--azul-escuro);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        /* Atendimento flutuante */
+        .atendimento-botao {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--verde-whatsapp);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 22px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2000;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .atendimento-caixa {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 330px;
+            max-width: 90%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+            z-index: 2000;
+            display: none;
+            overflow: hidden;
+            font-family: var(--fonte-principal);
+        }
+
+        .atendimento-topo {
+            background: var(--azul-escuro);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            border-bottom: 4px solid var(--amarelo);
+        }
+
+        .atendimento-conteudo {
+            padding: 15px;
+        }
+
+        .atendimento-conteudo p {
+            margin-top: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .opcao-atendimento {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 8px;
+            border: 1px solid #ddd;
+            background: #f8f8f8;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-weight: bold;
+            color: var(--azul-escuro);
+            font-size: 14px;
+        }
+
+        .opcao-atendimento:hover {
+            background: var(--amarelo);
+            color: var(--azul-escuro);
+        }
+
+        .fechar-atendimento {
+            background: #ccc;
+            color: #333;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 90px 5% 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn-whats {
+                padding: 16px 24px;
+                font-size: 1rem;
+            }
+
+            .atendimento-botao {
+                right: 20px;
+                bottom: 20px;
+                padding: 14px 18px;
+            }
+
+            .atendimento-caixa {
+                right: 20px;
+                bottom: 85px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
 <header class="site-header">
-  <div class="logo-container">
-    <img src="logo.jpg" alt="logo itajaimetall" class="logo-img">
-    <span class="logo-text">ITAJAIMETAL</span>
-  </div>
+    <div class="logo-container">
+        <img src="logo.jpg" alt="Logo Itajaimetal" class="logo-img">
+        <span class="logo-text">ITAJAIMETAL</span>
+    </div>
 
-  <div class="whats-topo">
-    <i class="fab fa-whatsapp"></i> (47) 99246-0045
-  </div>
+    <div class="whats-topo">
+        <i class="fab fa-whatsapp"></i> (47) 99246-0045
+    </div>
 </header>
-
 
 <section class="hero">
     <h1>Excelência em Usinagem Industrial</h1>
-    <p>Torno Mecânico, Soldas Especiais e Prototipagem 3D.</p>
-    <a href="https://wa.me/5547992460045?text=Olá Valmar, gostaria de um orçamento." class="btn-whats">
-        <i class="fab fa-whatsapp"></i> SOLICITE SEU ORÇAMENTO 
+    <p>Torno Mecânico, Soldas Especiais, Elétrica, Socorro Truck e Fabricação de Peças 3D.</p>
+
+    <a href="https://wa.me/5547992460045?text=Ol%C3%A1%20Valmar%2C%20gostaria%20de%20um%20or%C3%A7amento." class="btn-whats" target="_blank">
+        <i class="fab fa-whatsapp"></i> SOLICITE SEU ORÇAMENTO
     </a>
 </section>
 
 <section class="servicos">
     <h2>Nossos Serviços</h2>
+
     <div class="grid-servicos">
         <div class="card">
-            <i class="fas fa-tools"></i>
-            <h3>Torno Mecânico</h3>
-            <p>Fabricação e recuperação de eixos, buchas e peças de alta precisão.</p>
+            <i class="fas fa-cogs"></i>
+            <h3>Usinagem no Torno</h3>
+            <p>Fabricação e recuperação de eixos, buchas, roscas, pinos e peças de alta precisão.</p>
         </div>
+
         <div class="card">
             <i class="fas fa-fire-alt"></i>
             <h3>Solda Técnica</h3>
-            <p>Trabalhamos com soldas MIG, TIG e Elétrica (Inox, Alumínio e Aço).</p>
+            <p>Serviços com solda MIG, TIG e elétrica em aço, inox e alumínio.</p>
         </div>
+
         <div class="card">
-            <i class="fas fa-microchip"></i>
-            <h3>Prototipagem 3D</h3>
-            <p>Desenvolvimento de modelos e peças funcionais em impressão 3D.</p>
+            <i class="fas fa-cube"></i>
+            <h3>Fabricação de Peças 3D</h3>
+            <p>Desenvolvimento de modelos, protótipos e peças funcionais em impressão 3D.</p>
         </div>
+
         <div class="card">
-            <i class="fas fa-hammer"></i>
-            <h3>Reparo de Peças</h3>
-            <p>Manutenção e recuperação de componentes mecânicos diversos.</p>
-             <p> Troca de óleo e filtros ,verificação de freios, vazamentos</p>
-              <p>troca de periféricos do motor</p> 
+            <i class="fas fa-bolt"></i>
+            <h3>Elétrica</h3>
+            <p>Atendimento em sistemas elétricos, alternadores, baterias e diagnóstico de falhas.</p>
         </div>
-          <div class="card">
-            <i class="fas fa-hammer"></i>
-            <h3>Socorro Mecânico</h3>
-            <p>Socorro Mecânico em Motores Diesel e Sistema Elétrico.</p>
-            <p>Manutenção Preventiva de motores diesel estacionários(geradores).</p>
-            <p>Verificação de alternadores e baterias</p>
+
+        <div class="card">
+            <i class="fas fa-truck"></i>
+            <h3>Socorro Mecânico Truck</h3>
+            <p>Atendimento para caminhões, motores diesel, problemas elétricos e suporte emergencial.</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-tools"></i>
+            <h3>Reparo e Manutenção</h3>
+            <p>Troca de óleo e filtros, verificação de freios, vazamentos e periféricos do motor.</p>
         </div>
     </div>
 </section>
 
 <section class="contato">
     <h2>Contato Direto</h2>
-    <p>Entre em contato <strong>resolveremos</strong>  seu problema técnico o mais breve  possível.</p>
-    
-    <p><i class="fas fa-phone"></i> (47) 99246-0045 | Itajaí - SC</p>
-    
-    <div class="qr-area">
-        <p><strong>Acesse nosso WhatsApp pelo QR Code:</strong></p>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/5547992460045" alt="QR Code Itajaimetal">
+
+    <p>Entre em contato. <strong>Resolveremos</strong> seu problema técnico o mais breve possível.</p>
+
+    <p>
+        <i class="fas fa-phone"></i> (47) 99246-0045 | Itajaí - SC
+    </p>
+
+    <div class="qr-container">
+        <div class="qr-area">
+            <p><strong>WhatsApp:</strong></p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/5547992460045" alt="QR Code WhatsApp Itajaimetal">
+            <p>Escaneie para falar conosco.</p>
+        </div>
+
+        <div class="qr-area">
+            <p><strong>Acessar o site:</strong></p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://itajaimetal-site.vercel.app/" alt="QR Code Site Itajaimetal">
+            <p>Escaneie para abrir no celular.</p>
+        </div>
     </div>
 </section>
 
+<section class="instalar-area">
+    <h2>Instale nosso site no celular</h2>
+    <p>Você pode salvar a Itajaimetal como aplicativo no celular para acessar mais rápido.</p>
+
+    <button id="btnInstalar" class="btn-instalar">
+        <i class="fas fa-download"></i> Instalar no celular
+    </button>
+
+    <p id="textoInstalar">
+        No Android, abra pelo Chrome e toque em “Adicionar à tela inicial” se o botão não aparecer.
+    </p>
+</section>
+
 <footer>
-    <p>&copy; 2024 Itajaimetal Usinagem - Precisão e Confiança.</p>
+    <p>&copy; 2026 Itajaimetal Usinagem - Precisão e Confiança.</p>
 </footer>
 
-<a href="https://wa.me/5547992460045" class="float-whats" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<!-- Atendimento Flutuante Itajaimetal -->
+<div id="caixaAtendimento" class="atendimento-caixa">
+    <div class="atendimento-topo">
+        Atendimento Itajaimetal
+    </div>
+
+    <div class="atendimento-conteudo">
+        <p>Olá! Escolha uma opção para falar conosco pelo WhatsApp:</p>
+
+        <button class="opcao-atendimento" onclick="enviarWhatsApp('Socorro mecânico Truck')">
+            <i class="fas fa-truck"></i> Socorro mecânico Truck
+        </button>
+
+        <button class="opcao-atendimento" onclick="enviarWhatsApp('Usinagem de peças no torno')">
+            <i class="fas fa-cogs"></i> Usinagem de peças no torno
+        </button>
+
+        <button class="opcao-atendimento" onclick="enviarWhatsApp('Elétrica')">
+            <i class="fas fa-bolt"></i> Elétrica
+        </button>
+
+        <button class="opcao-atendimento" onclick="enviarWhatsApp('Fabricação de peças 3D')">
+            <i class="fas fa-cube"></i> Fabricação de peças 3D
+        </button>
+
+        <button class="opcao-atendimento" onclick="enviarWhatsApp('Orçamento geral')">
+            <i class="fas fa-file-invoice-dollar"></i> Solicitar orçamento
+        </button>
+
+        <button class="opcao-atendimento fechar-atendimento" onclick="abrirFecharAtendimento()">
+            Fechar
+        </button>
+    </div>
+</div>
+
+<button class="atendimento-botao" onclick="abrirFecharAtendimento()">
+    <i class="fab fa-whatsapp"></i> Atendimento
+</button>
+
+<script>
+    function abrirFecharAtendimento() {
+        var caixa = document.getElementById("caixaAtendimento");
+
+        if (caixa.style.display === "block") {
+            caixa.style.display = "none";
+        } else {
+            caixa.style.display = "block";
+        }
+    }
+
+    function enviarWhatsApp(servico) {
+        var telefone = "5547992460045";
+        var mensagem = "";
+
+        if (servico === "Socorro mecânico Truck") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de socorro mecânico Truck. Minha localização é:";
+        }
+
+        if (servico === "Usinagem de peças no torno") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de usinagem de peças no torno. Posso enviar medidas/foto da peça.";
+        }
+
+        if (servico === "Elétrica") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de atendimento em elétrica.";
+        }
+
+        if (servico === "Fabricação de peças 3D") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de fabricação de peças 3D. Posso enviar modelo, medidas ou foto.";
+        }
+
+        if (servico === "Orçamento geral") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e gostaria de solicitar um orçamento.";
+        }
+
+        var link = "https://wa.me/" + telefone + "?text=" + encodeURIComponent(mensagem);
+        window.open(link, "_blank");
+    }
+
+    /* PWA - botão instalar */
+    var eventoInstalacao = null;
+    var botaoInstalar = document.getElementById("btnInstalar");
+
+    window.addEventListener("beforeinstallprompt", function(event) {
+        event.preventDefault();
+        eventoInstalacao = event;
+        botaoInstalar.style.display = "inline-block";
+    });
+
+    botaoInstalar.addEventListener("click", function() {
+        if (eventoInstalacao) {
+            eventoInstalacao.prompt();
+
+            eventoInstalacao.userChoice.then(function(choiceResult) {
+                eventoInstalacao = null;
+                botaoInstalar.style.display = "none";
+            });
+        }
+    });
+
+    /* Registrar service worker */
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+            navigator.serviceWorker.register("service-worker.js")
+                .then(function() {
+                    console.log("Service Worker registrado com sucesso.");
+                })
+                .catch(function(error) {
+                    console.log("Erro ao registrar Service Worker:", error);
+                });
+        });
+    }
+</script>
 
 </body>
 </html>
