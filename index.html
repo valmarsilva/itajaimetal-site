@@ -513,46 +513,46 @@
     <i class="fab fa-whatsapp"></i> Atendimento
 </button>
 
-   <script>
-function enviarWhatsApp(servico) {
-    var telefone = "5547992460045";
-    var mensagem = "";
+  <script>
+    function abrirFecharAtendimento() {
+        var caixa = document.getElementById("caixaAtendimento");
 
-    if (servico === "Socorro mecânico Truck") {
-        mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de socorro mecânico Truck. Minha localização é:";
+        if (!caixa) {
+            return;
+        }
+
+        if (caixa.style.display === "block") {
+            caixa.style.display = "none";
+        } else {
+            caixa.style.display = "block";
+        }
     }
 
-    if (servico === "Usinagem de peças no torno") {
-        mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de usinagem de peças no torno. Posso enviar medidas/foto da peça.";
-    }
+    function enviarWhatsApp(servico) {
+        var telefone = "5547992460045";
+        var mensagem = "";
 
-    if (servico === "Elétrica") {
-        mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de atendimento em elétrica.";
-    }
+        if (servico === "Socorro mecânico Truck") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de socorro mecânico Truck. Minha localização é:";
+        } else if (servico === "Usinagem de peças no torno") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de usinagem de peças no torno. Posso enviar medidas/foto da peça.";
+        } else if (servico === "Elétrica") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de atendimento em elétrica.";
+        } else if (servico === "Fabricação de peças 3D") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de fabricação de peças 3D. Posso enviar modelo, medidas ou foto.";
+        } else if (servico === "Venda de peças") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e gostaria de consultar venda de peças. Posso enviar foto, código ou medidas da peça.";
+        } else if (servico === "Sistema de freio") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de atendimento em sistema de freio.";
+        } else if (servico === "Válvulas") {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de atendimento ou orçamento para válvulas.";
+        } else {
+            mensagem = "Olá Valmar, vim pelo site da Itajaimetal e gostaria de solicitar um orçamento.";
+        }
 
-    if (servico === "Fabricação de peças 3D") {
-        mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de fabricação de peças 3D. Posso enviar modelo, medidas ou foto.";
+        var link = "https://wa.me/" + telefone + "?text=" + encodeURIComponent(mensagem);
+        window.open(link, "_blank");
     }
-
-    if (servico === "Venda de peças") {
-        mensagem = "Olá Valmar, vim pelo site da Itajaimetal e gostaria de consultar venda de peças. Posso enviar foto, código ou medidas da peça.";
-    }
-
-    if (servico === "Sistema de freio") {
-        mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de atendimento em sistema de freio.";
-    }
-
-    if (servico === "Válvulas") {
-        mensagem = "Olá Valmar, vim pelo site da Itajaimetal e preciso de atendimento ou orçamento para válvulas.";
-    }
-
-    if (servico === "Orçamento geral") {
-        mensagem = "Olá Valmar, vim pelo site da Itajaimetal e gostaria de solicitar um orçamento.";
-    }
-
-    var link = "https://wa.me/" + telefone + "?text=" + encodeURIComponent(mensagem);
-    window.open(link, "_blank");
-}
 </script>
   
 
